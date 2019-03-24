@@ -48,7 +48,7 @@ public class AdvExtentReports {
 		extent.attachReporter(htmlReporter);
 
 	}
-//Chaithanya
+//teSTING DONE
 	@AfterSuite(alwaysRun = true)
 	public void endReport() {
 
