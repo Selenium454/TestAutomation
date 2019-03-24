@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Parameters" parallel="tests">
+
+	<test name="firefox">
+
+		<parameter name="browser" value="firefox"></parameter>
+
+		<classes>
+			<class name="testCases.GroupExecution" />
+		</classes>
+
+	</test> <!-- Test -->
+
+	<test name="chrome">
+
+		<parameter name="browser" value="chrome"></parameter>
+
+		<classes>
+			<class name="placeOrderModule.VerifyPlaceOrder" />
+		</classes>
+
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

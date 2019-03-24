@@ -17,6 +17,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Parameters;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -54,7 +55,7 @@ public class AdvExtentReports {
 		extent.flush();
 	}
 
-	@BeforeMethod
+	@BeforeMethod(alwaysRun = true)
 	public void initPageObjects(Method name) {
 		
 		logger = extent.createTest(name.getName(),name.getDeclaringClass().getName());
@@ -62,10 +63,11 @@ public class AdvExtentReports {
 		hmslogin = new HMSLoginPage();
 	}
 
-	@BeforeMethod
-	public void initApplication() {
+	@BeforeMethod(alwaysRun = true)
+	@Parameters({"browser"})
+	public void initApplication(String browserName) {
 
-		getBrowser("chrome");
+		getBrowser(browserName);
 		driver.get("https://www.amazon.in/");
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
@@ -81,7 +83,7 @@ public class AdvExtentReports {
 		}
 	}
 	
-	@AfterMethod
+	@AfterMethod(alwaysRun = true)
 	public static void verifyStatus(ITestResult result) {
 
 		try {
