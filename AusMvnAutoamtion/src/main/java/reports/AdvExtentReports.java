@@ -68,10 +68,10 @@ public class AdvExtentReports {
 	}
 
 	@BeforeMethod(alwaysRun = true)
-	@Parameters({"browser"})
-	public void initApplication(String browserName) {
+//	@Parameters({"browser"})
+	public void initApplication() {
 
-		getBrowser(browserName);
+		getBrowser("chrome");
 		driver.get("https://www.amazon.in/");
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
