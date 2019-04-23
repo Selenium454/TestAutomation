@@ -41,7 +41,7 @@ public class AdvExtentReports {
 	@BeforeSuite(alwaysRun = true)
 	public void startReport() {
 
-		htmlReporter = new ExtentHtmlReporter("./Report/extent.html");
+		htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir")+"/Report/extent.html");
 
 		extent = new ExtentReports();
 
@@ -100,10 +100,10 @@ public class AdvExtentReports {
 				logger.fail(result.getThrowable());
 				
 				
-				getScreen("./Report/Screenshots/" + result.getName() + ".png");
+				getScreen(System.getProperty("user.dir")+"/Report/Screenshots/" + result.getName() + ".png");
 				
 				
-				String screenlocation = "./Screenshots/" + result.getName() + ".png";
+				String screenlocation = System.getProperty("user.dir")+"/Screenshots/" + result.getName() + ".png";
 
 				logger.fail("Screen Shot Reference:  ",
 						MediaEntityBuilder.createScreenCaptureFromPath(screenlocation).build());

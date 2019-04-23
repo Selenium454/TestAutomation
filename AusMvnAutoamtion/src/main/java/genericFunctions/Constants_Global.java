@@ -10,6 +10,6 @@ public class Constants_Global {
 	public static String firefoxPath = "./DriverFiles/geckodriver.exe";
 	public static String iePath = "./DriverFiles/IEDriverServer.exe";
 	
-	public static String excelPath = "./ExcelData/AusTestData.xlsx";
+	public static String excelPath = System.getProperty("user.dir")+"/ExcelData/AusTestData.xlsx";
 
 }
